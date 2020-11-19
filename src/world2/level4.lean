@@ -10,13 +10,13 @@ begin [nat_num_game]
     induction b with d hd,
     {
         rw zero_add,
-        refl
+        refl,
     },
     {
         rw add_succ,
         rw succ_add,
         rw hd,
-        refl
+        refl,
     }
 end
 
