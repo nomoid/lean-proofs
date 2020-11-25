@@ -9,12 +9,13 @@ import custom.util
     there are infinitely many prime numbers. Specifically,
     the statement of the theorem is that:
 
-    If `n` is a natural number, there exists some prime
-    number `p` that is greater than `n`.
+    If `n` is a natural number greater than or equal to
+    `2`, there exists some prime number `p` that is
+    greater than `n`.
 
-    Given that `2` is prime, we can iteratively apply the
-    above theorem to show that there are infinitely many
-    primes.
+    Given that `2` is a natural number, we can iteratively
+    apply the above theorem to show that there are
+    infinitely many primes.
 
     The proof of infinitely many primes will be explained
     in detail. However, before the theorem statement, there
@@ -36,11 +37,11 @@ begin
     rw ne.def at h3,
     rw not_not at h3,
     rw h3 at h2,
-    have h3 := mod_zero m,
-    rw h3 at h2,
+    have h4 := mod_zero m,
+    rw h4 at h2,
     rw ← ne_zero_iff_gt_zero at h,
     rw h2 at h,
-    apply ne_self_imp_false,
+    apply ne_self_imp_false 0,
     exact h,
 end
 
@@ -190,7 +191,7 @@ begin
 end
 
 /- Lemma: Given `d ≥ 2` and `n`, where `n mod d` is `0`,
-   `n + 1 mod d` is `1`. -/
+   `(n + 1) mod d` is `1`. -/
 lemma mod_zero_add_one_is_one (n d : ℕ) (h: 2 ≤ d) : n % d = 0 → (n + 1) % d = 1 :=
 begin
     intro hmz,
@@ -247,7 +248,7 @@ begin
         by_contra hnpgn,
         -- At this point, we will work backwards to show
         -- that a contradiction occurs. This backwards
-        -- solving style may be a bit unituitive for
+        -- solving style may be a bit unintuitive for
         -- reading a regular proof in, but it is the style
         -- that is preferred by Lean.
         -- Since we have shown that `n! + 1` has `p` as a
