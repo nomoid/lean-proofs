@@ -1,5 +1,3 @@
--- import analysis.convex
-import data.complex.basic
 import analysis.normed_space.basic
 
 universe u
