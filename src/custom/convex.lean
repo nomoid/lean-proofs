@@ -19,7 +19,7 @@ def convex (s : set E) :=
     y ∈ s →
     contains_entire_segment s x y
 
--- Lemma: Given sets s1 and s2 and x where x ∈ x1 ∩ s2,
+-- Lemma: Given sets s1 and s2 and x where x ∈ s1 ∩ s2,
 --        x ∈ s1.
 lemma intersection_left (s1 s2: set E) (x : E) : x ∈ s1 ∩ s2 → x ∈ s1 :=
 begin
@@ -28,7 +28,7 @@ begin
     exact hleft
 end
 
--- Lemma: Given sets s1 and s2 and x where x ∈ x1 ∩ s2,
+-- Lemma: Given sets s1 and s2 and x where x ∈ s1 ∩ s2,
 --        x ∈ s2.
 lemma intersection_right (s1 s2: set E) (x : E) : x ∈ s1 ∩ s2 → x ∈ s2 :=
 begin
